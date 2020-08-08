@@ -10,6 +10,9 @@ import {
 import Team from "./components/team/Team";
 import VsItem from "./components/vs/VsItem";
 import TeamsLastMatches from "./components/teams_last_matches/TeamsLastMatches";
+import Bets from "./components/bets/Bets";
+import LastMatchs from "./components/teams_last_matches/LastMatchs";
+import BetsRouter from "./components/bets/BetsRouter";
 
 export const Main = (props) => {
   const [radiant_players, setRadiantPlayers] = useState([]);
@@ -83,18 +86,10 @@ export const Main = (props) => {
           players={dire_players}
           team_id={dire.team_id}
         />
-        <p className="last-title">Last Teams Matches</p>
-        <div className="main_last_matches">
-          {last_matches
-            ? last_matches.map((item) => (
-                <TeamsLastMatches
-                  tournament={item.tournament}
-                  team1={item.team1}
-                  team2={item.team2}
-                />
-              ))
-            : ""}
-        </div>
+
+        <LastMatchs last_matches={last_matches ? last_matches : []} />
+        {/* <Bets /> */}
+        <BetsRouter />
       </div>
     </div>
   );

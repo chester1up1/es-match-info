@@ -1,0 +1,220 @@
+.bet-t {
+  font-weight: bold;
+  font-size: 24px;
+  color: #959588;
+  text-align: center;
+  width: 100%;
+  margin-top: 25px;
+}
+.bets {
+  background: #182639;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+
+  .bets-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    .tournament {
+      margin-right: 25px;
+    }
+    .cantors {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .cantor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 29px;
+        width: 52px;
+        padding: 1.5px;
+        border: 0.5px solid #b2b1b1;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .bets-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #353f48;
+    border-radius: 5px;
+    padding: 2.5px;
+    .tournament-header {
+      width: 100%;
+      text-align: center;
+      border-bottom: 0.5px solid #b2b1b1;
+      p {
+        margin-bottom: 0px;
+        color: #b3b1b1;
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+    .bets-items-bot {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .bets-teams {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 5px;
+        padding-left: 5px;
+
+        .bets-team {
+          margin-right: 25px;
+          width: 80px;
+          p {
+            font-weight: normal;
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .bets-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 5px;
+        .bet {
+          p {
+            margin-bottom: 5px;
+            font-weight: normal;
+            font-size: 16px;
+            color: #ffffff;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.bet-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .close {
+    img {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+  .bet-card-logo {
+    img {
+      width: 98px;
+      height: 40px;
+      object-fit: cover;
+    }
+  }
+  .bet-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .left {
+      display: flex;
+      flex-direction: column;
+      p {
+        color: #000000;
+        margin-bottom: 0px;
+      }
+      .team-bet {
+        font-weight: normal;
+        font-size: 16px;
+      }
+      .map {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+      .teams {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      .input-box {
+        border-bottom: 1px solid black;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .dol {
+          opacity: 0.5;
+        }
+        input {
+          outline: 0;
+          border-width: 0 0 0px;
+          border-color: #000000;
+          width: 80%;
+          color: #000;
+        }
+      }
+
+      p {
+        color: #000000;
+        margin-bottom: 0px;
+      }
+      .possible {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+      .possible-n {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+    }
+  }
+  .btn_box {
+    padding-right: 10%;
+    padding-left: 10%;
+    margin-top: 30px;
+    .btn_ {
+      cursor: pointer;
+      background-color: #f8ff13;
+      border-radius: 5px;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      p {
+        font-weight: 600;
+        font-size: 14px;
+        color: #000000;
+        margin-bottom: 0px;
+      }
+    }
+    .btn_:hover {
+      opacity: 0.7;
+    }
+    .btn_:active {
+      opacity: 0.5;
+    }
+  }
+}
