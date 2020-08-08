@@ -1,14 +1,14 @@
 import * as firebase from "firebase";
-import "firebase/storage";
+// import "firebase/storage";
 var firebaseConfig = {
-  apiKey: "AIzaSyDIEJZvxRUP716aT0mmJxe3D_3FJ7jGdVo",
-  authDomain: "sponsor-carousel.firebaseapp.com",
-  databaseURL: "https://sponsor-carousel.firebaseio.com",
-  projectId: "sponsor-carousel",
-  storageBucket: "sponsor-carousel.appspot.com",
-  messagingSenderId: "488077348102",
-  appId: "1:488077348102:web:cd7bd1527b32b367d16287",
+  apiKey: "AIzaSyAQ7upIXiBzgZgtc_TTrgl4JcQ3zQPrOJ8",
+  authDomain: "es-match-info.firebaseapp.com",
+  databaseURL: "https://es-match-info.firebaseio.com",
+  projectId: "es-match-info",
+  storageBucket: "es-match-info.appspot.com",
+  messagingSenderId: "633756263080",
+  appId: "1:633756263080:web:c8dbe40cec084e702d989d",
 };
 firebase.initializeApp(firebaseConfig);
-export const storage = firebase.storage();
+// export const storage = firebase.storage();
 export const database = firebase.firestore();
