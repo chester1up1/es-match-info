@@ -10,13 +10,25 @@
   .main-bg {
     width: 30%;
     min-width: 553px;
-    height: 100%;
     background-color: #1b242b;
     border: 2px solid #45585e;
     border-radius: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative;
+  }
+  .main-bg::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .main-bg::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 90px;
+    width: 5px;
+    height: 5px;
   }
 }

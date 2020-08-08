@@ -16,6 +16,8 @@ export const Main = (props) => {
   const [radiant_name, setRadiantName] = useState("");
   const [dire_players, setDirePlayers] = useState([]);
   const [dire_name, setDireName] = useState("");
+  const [radiant, setRadiant] = useState("");
+  const [dire, setDire] = useState("");
   const {
     GetRunningMatch,
     match,
@@ -54,6 +56,8 @@ export const Main = (props) => {
   useEffect(() => {
     if (r_players && d_players) {
       setRadiantPlayers(r_players);
+      setRadiant(match.radiant_team);
+      setDire(match.dire_team);
       setRadiantName(match.radiant_team.team_name);
       setDirePlayers(d_players);
       setDireName(match.dire_team.team_name);
@@ -68,6 +72,7 @@ export const Main = (props) => {
           color="#A9D14A"
           team_name={radiant_name}
           players={radiant_players}
+          team_id={radiant.team_id}
         />
         {r_logo && d_logo ? <VsItem r_logo={r_logo} d_logo={d_logo} /> : ""}
 
@@ -76,6 +81,7 @@ export const Main = (props) => {
           color="#D0393E"
           team_name={dire_name}
           players={dire_players}
+          team_id={dire.team_id}
         />
         <p className="last-title">Last Teams Matches</p>
         <div className="main_last_matches">

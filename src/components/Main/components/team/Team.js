@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./style.scss";
-
+import { Link } from "react-router-dom";
 export const Team = (props) => {
-  const { side, color, team_name, players } = props;
+  const { side, color, team_name, players, team_id } = props;
   const RankImg = (rank) => {
     if (rank <= 100 && rank > 10) {
       return (
@@ -62,16 +62,20 @@ export const Team = (props) => {
       </div>
       <div className="players">
         {players.map((item) => (
-          <div className="player">
-            <p className="name">{item.name}</p>
-            <img className="hero" src={item.img} alt="hero" />
-            <div className="rank_box">
-              {RankImg(item.rank)}
-              <div className="rank_text">
-                <p className="rank">{item.rank}</p>
+          <Link
+            to={`/player/${item.account_id}/${item.rank}/${item.name}/${team_id}/${item.hero_id}`}
+          >
+            <div className="player">
+              <p className="name">{item.name}</p>
+              <img className="hero" src={item.img} alt="hero" />
+              <div className="rank_box">
+                {RankImg(item.rank)}
+                <div className="rank_text">
+                  <p className="rank">{item.rank}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
