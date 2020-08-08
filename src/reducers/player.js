@@ -35,10 +35,10 @@ const player = (state = defaultState, action) => {
         ...state,
         hero: action.data,
       };
-    case "GET_PLAYERS_LAST_MATCHS":
+    case "GET_PLAYERS_LAST_Matches":
       return {
         ...state,
-        last_matchs: action.data,
+        last_matches: action.data,
       };
     default:
       return state;

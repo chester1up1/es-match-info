@@ -5,13 +5,13 @@ import {
   GetRunningMatch,
   GetTeamRadiantLogo_,
   GetTeamDireLogo_,
-  GetPastMatchs,
+  GetPastMatches,
 } from "../core/actions";
 import Team from "./components/team/Team";
-import { VsItem } from "./components/vs/VsItem";
+import VsItem from "./components/vs/VsItem";
+import TeamsLastMatches from "./components/teams_last_matches/TeamsLastMatches";
 
 export const Main = (props) => {
-  const [load, setLoad] = useState(false);
   const [radiant_players, setRadiantPlayers] = useState([]);
   const [radiant_name, setRadiantName] = useState("");
   const [dire_players, setDirePlayers] = useState([]);
@@ -22,33 +22,35 @@ export const Main = (props) => {
     state,
     GetTeamRadiantLogo_,
     GetTeamDireLogo_,
-    GetPastMatchs,
+    GetPastMatches,
     r_players,
     d_players,
     r_logo,
     d_logo,
+    load,
+    last_matches,
   } = props;
   useEffect(() => {
     GetRunningMatch();
   }, []);
   useEffect(() => {
+    setTimeout(() => {
+      GetPastMatches(
+        match.match_id,
+        match.radiant_team.team_id,
+        match.dire_team.team_id
+      );
+    }, 100);
     if (state.matches.r_logo == "") {
       if (
         typeof match.radiant_team !== "undefined" &&
         typeof match.dire_team !== "undefined"
       ) {
-        // setRadiantPlayers(state.matches.r_players);
         GetTeamDireLogo_(match.dire_team.team_id);
         GetTeamRadiantLogo_(match.radiant_team.team_id);
-
-        GetPastMatchs(
-          match.match_id,
-          match.radiant_team.team_id,
-          match.dire_team.team_id
-        );
       }
     }
-  }, [match]);
+  }, [load]);
   useEffect(() => {
     if (r_players && d_players) {
       setRadiantPlayers(r_players);
@@ -71,10 +73,22 @@ export const Main = (props) => {
 
         <Team
           side="Dire"
-          color="#EC030B"
+          color="#D0393E"
           team_name={dire_name}
           players={dire_players}
         />
+        <p className="last-title">Last Teams Matches</p>
+        <div className="main_last_matches">
+          {last_matches
+            ? last_matches.map((item) => (
+                <TeamsLastMatches
+                  tournament={item.tournament}
+                  team1={item.team1}
+                  team2={item.team2}
+                />
+              ))
+            : ""}
+        </div>
       </div>
     </div>
   );
@@ -87,13 +101,15 @@ const mapStateToProps = (state) => ({
   d_players: state.matches.d_players,
   r_logo: state.matches.r_logo,
   d_logo: state.matches.d_logo,
+  load: state.matches.load,
+  last_matches: state.matches.past_matches,
 });
 
 const mapDispatchToProps = {
   GetRunningMatch,
   GetTeamRadiantLogo_,
   GetTeamDireLogo_,
-  GetPastMatchs,
+  GetPastMatches,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -225,14 +225,14 @@ export const GetRunningMatch = () => {
   };
 };
 
-export const GetPastMatchs = (id_match, id_team_r, id_team_d) => {
-  console.log("GetPastMatchs");
+export const GetPastMatches = (id_match, id_team_r, id_team_d) => {
+  console.log("GetPastMatches");
   return async (dispatch) => {
     fetch(`https://api.opendota.com/api/matches/${id_match}?${OpenDotaKey}`)
       .then((res) => res.json())
       .then((result) => {
         let now_series_id = result.series_id;
-        console.log("reeeeeeeeeeeeeeeeeee", result);
+        console.log("tyt", result);
         if (result.error !== "Not Found") {
           fetch(
             `https://api.opendota.com/api/teams/${id_team_r}/matches?${OpenDotaKey}`
@@ -268,7 +268,7 @@ export const GetPastMatchs = (id_match, id_team_r, id_team_d) => {
                             final[index] = [...final[index], el];
                           }
                           if (index_ == new_data.length - 1) {
-                            dispatch({ type: "GET_PAST_MATCHS", data: final });
+                            dispatch({ type: "GET_PAST_Matches", data: final });
                           }
                         }
                       });
@@ -394,7 +394,7 @@ export const PlayerRole = (id) => {
 //       console.log("leagues", result);
 //     });
 // };
-export const GetLastMatchs = (id) => {
+export const GetLastMatches = (id) => {
   return async (dispatch) => {
     fetch(
       `https://api.opendota.com/api/players/${id}/recentMatches?is_radiant=1&${OpenDotaKey}`
@@ -427,7 +427,7 @@ export const GetLastMatchs = (id) => {
                 }
               }
               if (index == 19) {
-                dispatch({ type: "GET_PLAYERS_LAST_MATCHS", data: data });
+                dispatch({ type: "GET_PLAYERS_LAST_Matches", data: data });
               }
             });
         });

@@ -5,7 +5,7 @@ const defaultState = {
   // d_logo: "",
   // r_players: "",
   // d_players: "",
-  // past_matchs: "",
+  // past_matches: "",
 };
 
 const matches = (state = defaultState, action) => {
@@ -73,7 +73,7 @@ const matches = (state = defaultState, action) => {
         ...state,
         d_logo: action.data,
       };
-    case "GET_PAST_MATCHS":
+    case "GET_PAST_Matches":
       console.log("action.data", action.data);
       let game1 = "";
       let game2 = "";
@@ -172,7 +172,7 @@ const matches = (state = defaultState, action) => {
       }
       return {
         ...state,
-        past_matchs: game1 !== "" && game2 !== "" ? [game1, game2] : "",
+        past_matches: game1 !== "" && game2 !== "" ? [game1, game2] : "",
       };
     default:
       return state;
