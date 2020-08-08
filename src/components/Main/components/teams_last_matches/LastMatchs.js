@@ -1,7 +1,7 @@
-import React from "react";
-import { TeamsLastMatches } from "./TeamsLastMatches";
-
-export default function LastMatchs(props) {
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import TeamsLastMatches from "./TeamsLastMatches";
+export const LastMatchs = (props) => {
   const { last_matches } = props;
   return (
     <div>
@@ -19,4 +19,12 @@ export default function LastMatchs(props) {
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  last_matches: state.matches.past_matches,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LastMatchs);

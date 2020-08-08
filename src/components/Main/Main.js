@@ -13,6 +13,9 @@ import TeamsLastMatches from "./components/teams_last_matches/TeamsLastMatches";
 import Bets from "./components/bets/Bets";
 import LastMatchs from "./components/teams_last_matches/LastMatchs";
 import BetsRouter from "./components/bets/BetsRouter";
+import { Spinner } from "reactstrap";
+import MainRouter from "./components/MainRouter";
+import NavBar from "./components/nav/NavBar";
 
 export const Main = (props) => {
   const [radiant_players, setRadiantPlayers] = useState([]);
@@ -21,6 +24,7 @@ export const Main = (props) => {
   const [dire_name, setDireName] = useState("");
   const [radiant, setRadiant] = useState("");
   const [dire, setDire] = useState("");
+  const [time_load, setLoad] = useState(false);
   const {
     GetRunningMatch,
     match,
@@ -86,10 +90,16 @@ export const Main = (props) => {
           players={dire_players}
           team_id={dire.team_id}
         />
-
-        <LastMatchs last_matches={last_matches ? last_matches : []} />
-        {/* <Bets /> */}
-        <BetsRouter />
+        <MainRouter />
+        {last_matches ? (
+          <NavBar
+            match_id={match.match_id}
+            team_r={match.radiant_team.team_id}
+            team_d={match.dire_team.team_id}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

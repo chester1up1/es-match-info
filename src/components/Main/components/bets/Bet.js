@@ -7,6 +7,7 @@ export default function Bet(props) {
   const handleChange = (e) => {
     setbet_n(e.target.value);
   };
+  const [check, setCheck] = useState(false);
   return (
     <div>
       <p className="bet-t">Bet</p>
@@ -24,28 +25,43 @@ export default function Bet(props) {
             alt="bet"
           />
         </div>
-        <div className="bet-body">
-          <div className="left">
-            <p className="team-bet">Unique{" " + bet}</p>
-            <p className="map">Map Winer</p>
-            <p className="teams">Unique - Viking.gg</p>
-          </div>
-          <div className="right">
-            <div className="input-box">
-              <input value={bet_n} onChange={handleChange} />
-              <p className="dol">$</p>
+        {!check ? (
+          <div>
+            <div className="bet-body">
+              <div className="left">
+                <p className="team-bet">Unique{" " + bet}</p>
+                <p className="map">Map Winer</p>
+                <p className="teams">Unique - Viking.gg</p>
+              </div>
+              <div className="right">
+                <div className="input-box">
+                  <input value={bet_n} onChange={handleChange} />
+                  <p className="dol">$</p>
+                </div>
+                <p className="possible">Possible payout:</p>
+                <p className="possible-n">
+                  {parseInt((bet_n * bet - bet_n) * 100) / 100 + "$"}
+                </p>
+              </div>
             </div>
-            <p className="possible">Possible payout:</p>
-            <p className="possible-n">
-              {parseInt((bet_n * bet - bet_n) * 100) / 100 + "$"}
+            <div className="btn_box">
+              <div className="btn_" onClick={() => setCheck(true)}>
+                <p>PLACE BET {bet_n} $</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="mess">
+            <p className="message">
+              Congratulations! Your bet is accepted successfully{" "}
             </p>
+            <Link to="/">
+              <div className="btn_ok">
+                <p>OK</p>
+              </div>
+            </Link>
           </div>
-        </div>
-        <div className="btn_box">
-          <div className="btn_">
-            <p>PLACE BET {bet_n} $</p>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
