@@ -13,3 +13,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+//ToDo: caching api results, fetchs  !!!
